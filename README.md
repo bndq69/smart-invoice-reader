@@ -20,6 +20,17 @@ const WHATSAPP_NUMBER = "201069160401";
 
 اكتب الرقم بالصيغة الدولية بدون `+` أو مسافات.
 
+## ربط فورم التواصل بـ Supabase
+
+1. من Supabase افتح **SQL Editor** وشغّل الملف `supabase/contact_requests.sql` مرة واحدة.
+2. من **Project Settings > API** انسخ الـ Project URL والـ anon (public) key.
+3. حطهم في `index.html` مكان `YOUR_SUPABASE_URL` و `YOUR_SUPABASE_ANON_KEY`.
+4. اعمل commit و push، وCloudflare Pages هينشر التعديل لوحده.
+
+الطلبات بتظهر في **Table Editor > contact_requests**. الزوار يقدروا يضيفوا طلبات بس، ومحدش يقدر يقراها غيرك من لوحة Supabase.
+
+> ممنوع تحط الـ service_role key في الصفحة أبداً.
+
 ---
 
 مالك التطبيق: إسلام محمد
