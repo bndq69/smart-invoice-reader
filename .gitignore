@@ -1,0 +1,10 @@
+# دليل التطبيق الداخلي (لا يُرفع على GitHub)
+MY_APP.md
+
+# ملفات النظام والمحررات
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+.claude/
