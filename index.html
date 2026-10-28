@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>قارئ الفواتير الذكي | إدارة المحل والمخزن من غير إنترنت</title>
-  <meta name="description" content="قارئ الفواتير الذكي: صوّر فاتورة المورد والذكاء الاصطناعي يقراها في ثواني. نقطة بيع سريعة، حسابات آجل مظبوطة، تحكم في أجهزة فريقك بكود 6 أرقام، وبيشتغل بالكامل من غير إنترنت.">
+  <title>قارئ الفواتير الذكي | إدارة المحل والمخزن، والبيع من غير إنترنت</title>
+  <meta name="description" content="قارئ الفواتير الذكي: صوّر فاتورة المورد والتطبيق يقراها في ثواني. نقطة بيع سريعة، حسابات آجل مظبوطة، تحكم في أجهزة فريقك بكود 6 أرقام، والبيع والجرد شغالين من غير إنترنت. ابدأ بأسبوع مجاني.">
   <meta property="og:title" content="قارئ الفواتير الذكي">
-  <meta property="og:description" content="صوّر فاتورة المورد.. والمخزن يتكلم لوحده. بيشتغل من غير إنترنت، بيحمي أرباحك، وبيدير فريقك.">
+  <meta property="og:description" content="صوّر فاتورة المورد.. والمخزن يتكلم لوحده. البيع والجرد من غير إنترنت، بيحمي أرباحك، وبيدير فريقك. ابدأ بأسبوع مجاني.">
   <meta property="og:type" content="website">
   <meta name="author" content="إسلام محمد">
   <meta name="theme-color" content="#1d4ed8">
@@ -145,7 +145,7 @@
       display: grid; place-items: center; box-shadow: 0 6px 16px rgba(29, 78, 216, .35);
     }
     .brand-icon svg { width: 22px; height: 22px; }
-    .nav-links { display: flex; align-items: center; gap: 28px; font-weight: 700; color: var(--text-muted); }
+    .nav-links { display: flex; align-items: center; gap: 22px; font-weight: 700; color: var(--text-muted); white-space: nowrap; }
     .nav-links a:hover { color: var(--primary); }
     .nav-cta { display: flex; align-items: center; gap: 12px; }
     .burger {
@@ -159,9 +159,12 @@
     .mobile-menu a { padding: 12px 8px; font-weight: 700; border-radius: 10px; }
     .mobile-menu a:hover { background: var(--bg-soft); }
     .mobile-menu.open { display: flex; }
-    @media (max-width: 860px) {
-      .nav-links, .nav-cta .btn { display: none; }
+    @media (max-width: 1080px) {
+      .nav-links { display: none; }
       .burger { display: grid; }
+    }
+    @media (max-width: 860px) {
+      .nav-cta .btn { display: none; }
     }
 
     /* Hero */
@@ -279,6 +282,8 @@
     .tag.r { background: var(--red-soft); color: var(--red); }
     .tag.a { background: var(--amber-soft); color: var(--amber); }
     .tag.b { background: var(--primary-soft); color: var(--primary); }
+    .card-wide { grid-column: 1 / -1; }
+    @media (min-width: 961px) { .card-wide-lg { grid-column: 1 / -1; } }
 
     /* Steps */
     .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; counter-reset: step; }
@@ -339,6 +344,18 @@
     .kill h3 { font-size: 1.15rem; margin-bottom: 4px; }
     .kill p { color: var(--text-muted); font-size: .95rem; flex: 1; min-width: 240px; }
 
+    /* Pricing */
+    .plan { display: flex; flex-direction: column; }
+    .plan.featured { border: 2px solid var(--primary); box-shadow: var(--shadow); }
+    .plan .price { font-size: 2.2rem; font-weight: 900; line-height: 1.2; margin: 4px 0 2px; }
+    .plan .price small { font-size: 1rem; font-weight: 700; color: var(--text-muted); }
+    .plan ul { display: flex; flex-direction: column; gap: 8px; margin: 16px 0 22px; font-size: .95rem; flex: 1; }
+    .plan li { display: flex; gap: 8px; align-items: flex-start; }
+    .plan li svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 5px; color: var(--green); }
+    .plan .btn { width: 100%; }
+    @media (min-width: 621px) and (max-width: 960px) { .plan.featured { grid-column: 1 / -1; } }
+    .plans-note { text-align: center; color: var(--text-muted); font-size: .95rem; margin-top: 20px; }
+
     /* FAQ */
     .faq { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
     .faq details { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0 20px; }
@@ -375,7 +392,8 @@
     }
     .field input[aria-invalid="true"], .field select[aria-invalid="true"] { border-color: var(--red); }
     .field .err { color: var(--red); font-size: .82rem; font-weight: 700; margin-top: 4px; min-height: 1.2em; }
-    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    /* Visually hidden without an off-screen offset: left:-9999px made the RTL page scroll sideways */
+    .hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
     .form-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
     .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 8px 24px rgba(29, 78, 216, .3); font-family: inherit; }
     .btn-primary:hover { background: var(--primary-strong); }
@@ -436,15 +454,16 @@
       <ul class="nav-links">
         <li><a href="#features">المميزات</a></li>
         <li><a href="#how">بيشتغل إزاي</a></li>
-        <li><a href="#sync">المزامنة</a></li>
+        <li><a href="#exchange">تبادل الشغل</a></li>
         <li><a href="#roles">الصلاحيات</a></li>
+        <li><a href="#pricing">الباقات</a></li>
         <li><a href="#faq">الأسئلة</a></li>
         <li><a href="#contact">كلمنا</a></li>
       </ul>
       <div class="nav-cta">
         <a class="btn btn-whatsapp btn-sm js-wa" href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.1.6 2.9.5a2.5 2.5 0 0 0 1.6-1.1c.2-.6.2-1 .1-1.1l-.6-.3z"/></svg>
-          اطلب سيريال متجرك
+          اطلب سيريال محلك
         </a>
         <button class="burger" id="burger" aria-label="افتح القائمة" aria-expanded="false" aria-controls="mobileMenu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -454,8 +473,9 @@
     <div class="mobile-menu" id="mobileMenu">
       <a href="#features">المميزات</a>
       <a href="#how">بيشتغل إزاي</a>
-      <a href="#sync">المزامنة</a>
+      <a href="#exchange">تبادل الشغل</a>
       <a href="#roles">الصلاحيات</a>
+      <a href="#pricing">الباقات</a>
       <a href="#faq">الأسئلة الشائعة</a>
       <a href="#contact">كلمنا</a>
     </div>
@@ -470,23 +490,23 @@
     <div>
       <span class="eyebrow">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
-        بيشتغل من غير إنترنت خالص
+        البيع والتحصيل والجرد من غير إنترنت
       </span>
       <h1>صوّر فاتورة المورد..<br><span class="accent">والمخزن يتكلم لوحده</span></h1>
       <p class="hero-sub">
-        نظام إدارة المحل والمخزن لتجار القطاعي والجملة والموزعين. بيقرا فواتير الموردين بالذكاء الاصطناعي في ثواني، بيحسب تكلفة بضاعتك بالقرش، بيتابع ديون العملاء، وبيخليك تتحكم في موبايلات فريقك من جهازك.
+        نظام إدارة المحل والمخزن لتجار القطاعي والجملة والموزعين. بيقرا فواتير الموردين بالذكاء الاصطناعي في ثواني، بيحسب تكلفة بضاعتك بالقرش، بيتابع ديون العملاء، وبيخليك تتحكم في موبايلات فريقك من موبايلك.
       </p>
       <div class="hero-actions">
         <a class="btn btn-whatsapp btn-lg js-wa" href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.1.6 2.9.5a2.5 2.5 0 0 0 1.6-1.1c.2-.6.2-1 .1-1.1l-.6-.3z"/></svg>
-          اطلب سيريال متجرك على واتساب
+          ابدأ التجربة المجانية على واتساب
         </a>
         <a class="btn btn-outline btn-lg" href="#how">شوف بيشتغل إزاي</a>
       </div>
       <ul class="hero-badges">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> من غير سيرفرات معقدة</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> تفعيل الموظف بكود 6 أرقام</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> طباعة بلوتوث وإرسال PDF</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> تفعيل فريقك بكود 6 أرقام</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> فاتورة PDF على الواتساب</li>
       </ul>
     </div>
 
@@ -517,13 +537,13 @@
             </div>
             <div class="mcard">
               <div class="ic b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 16h5"/></svg></div>
-              <div class="mid"><b>مورد: شركة النيل</b><span>قراءة AI · 18 صنف</span></div>
+              <div class="mid"><b>مورد: شركة النيل</b><span>قراءة بالصورة · 18 صنف</span></div>
               <div class="val b">8,900<small>مشتريات</small></div>
             </div>
             <div class="mcard">
               <div class="ic r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
-              <div class="mid"><b>زيت عباد 1 لتر</b><span>مخزون بالسالب</span></div>
-              <div class="val r">-6<small>عجز</small></div>
+              <div class="mid"><b>زيت عباد 1 لتر</b><span>بيع بالسالب</span></div>
+              <div class="val r">-6<small>قطعة</small></div>
             </div>
           </div>
           <div class="screen-fab">+ فاتورة بيع جديدة</div>
@@ -535,7 +555,7 @@
       </div>
       <div class="float-tag t2" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
-        بيشتغل Offline
+        البيع من غير إنترنت
       </div>
     </div>
   </div>
@@ -545,8 +565,8 @@
 <section class="trust">
   <div class="container">
     <ul>
-      <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a7 7 0 0 1 14 0"/><path d="M8.5 15a3.5 3.5 0 0 1 7 0"/><circle cx="12" cy="18" r="1"/><path d="M2 2l20 20"/></svg></span> بيشتغل Offline بالكامل</li>
-      <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h.01M11 12h.01M15 12h.01"/></svg></span> تفعيل الموظف بكود 6 أرقام</li>
+      <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a7 7 0 0 1 14 0"/><path d="M8.5 15a3.5 3.5 0 0 1 7 0"/><circle cx="12" cy="18" r="1"/><path d="M2 2l20 20"/></svg></span> البيع والجرد من غير إنترنت</li>
+      <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h.01M11 12h.01M15 12h.01"/></svg></span> تفعيل فريقك بكود 6 أرقام</li>
       <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M8 12h8"/></svg></span> بيقرا الفاتورة في ثواني</li>
       <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span> نسخة احتياطية بضغطة</li>
     </ul>
@@ -565,32 +585,37 @@
       <div class="card reveal">
         <div class="ic b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
         <h3>حماية المحل وأسراره</h3>
-        <p>سيريال الترخيص مقفول على جهاز المالك بس. مفيش عامل ولا مندوب يقدر ياخد حساب المحل أو يشوف أسعار الشراء وهوامش الربح.</p>
+        <p>سيريال المحل مقفول على موبايل صاحب المحل بس. مفيش مندوب يقدر ياخد حساب المحل أو يشوف أسعار الشراء والأرباح.</p>
       </div>
       <div class="card reveal">
         <div class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M19 8v6M16 11h6"/></svg></div>
-        <h3>إضافة الموظفين بلمسة واحدة</h3>
-        <p>من غير أي خطوات تقنية. بتطلّع كود انضمام من 6 أرقام من نافذة تحت، بتنسخه بلمسة، وموبايل الموظف بيتفعّل فوراً بالصلاحية اللي انت حددتها.</p>
+        <h3>إضافة فريقك بلمسة واحدة</h3>
+        <p>من غير أي خطوات تقنية. بتطلّع كود انضمام من 6 أرقام من نافذة تحت، بتنسخه بلمسة، وموبايل المدير أو المندوب بيتفعّل فوراً بالرتبة اللي انت حددتها.</p>
       </div>
       <div class="card reveal">
         <div class="ic r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/><path d="M4 8l16 8"/></svg></div>
-        <h3>تحكم فوري في أجهزة الفريق</h3>
-        <p>من موبايلك تقدر ترقّي الموظف لمدير، أو تقلّل صلاحياته، أو تلغي ترخيص جهازه وتطرده فوراً لو الموبايل ضاع أو الموظف ساب الشغل.</p>
+        <h3>تحكم فوري في أجهزة المحل</h3>
+        <p>من موبايلك تلغي أي جهاز في ثانية لو الموبايل ضاع أو حد ساب الشغل، وتغيّر رتبة أي حد بكود انضمام جديد.</p>
       </div>
       <div class="card reveal">
         <div class="ic a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
         <h3>وقّف نزيف الأرباح</h3>
-        <p>لما تشتري نفس الصنف بأسعار مختلفة خلال الشهر بتلاقي نفسك بتبيع بسعر قديم وبتخسر. النظام بيحسب متوسط تكلفة الشراء لوحده مع كل فاتورة مورد.</p>
+        <p>لما تشتري نفس الصنف بأسعار مختلفة خلال الشهر بتلاقي نفسك بتبيع بسعر قديم وبتخسر. التطبيق بيحسب متوسط التكلفة لوحده بالقرش مع كل فاتورة مورد، فتعرف تكلفتك الحقيقية وتسعّر صح.</p>
       </div>
       <div class="card reveal">
         <div class="ic b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a2 2 0 0 1 2-2h2l1.5-2h5L16 5h2a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
         <h3>خلاص من لخبطة الفواتير الورقية</h3>
-        <p>بدل ما تقعد ساعات بعد يوم شغل تعب تكتب فواتير الموردين صنف صنف، صورة سريعة بالكاميرا أو ملف PDF والذكاء الاصطناعي بيقرا كل البنود في ثواني.</p>
+        <p>بدل ما تقعد ساعات بعد يوم شغل تعب تكتب فواتير الموردين صنف صنف، صورة سريعة بالكاميرا أو ملف PDF، والتطبيق بيقرا كل البنود في ثواني.</p>
       </div>
       <div class="card reveal">
         <div class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M4 10h16"/><path d="M8 15h3"/></svg></div>
         <h3>حسابات آجل وديون مظبوطة</h3>
         <p>متابعة دقيقة لديون العملاء والموردين، وسندات قبض وصرف، وكشف حساب بالتاريخ واضح. ومفيش أي دمج مخفي للعملاء عشان ديون الناس ما تتلخبطش.</p>
+      </div>
+      <div class="card card-wide reveal">
+        <div class="ic a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h11l-3-3"/><path d="M17 17H6l3 3"/></svg></div>
+        <h3>تبادل الشغل مع الفريق</h3>
+        <p>المندوب في الشارع ومفيش نت؟ آخر اليوم بيبعتلك شغله في ملف على الواتساب أو أي تطبيق، أو بيتحدث عبر الإنترنت لوحده لو شغّلته. والملف اللي بيروح للمندوب عمره ما يكون فيه تكلفة أو أرباح.</p>
       </div>
     </div>
   </div>
@@ -608,32 +633,52 @@
       <div class="card reveal">
         <span class="tag g">مبيعات</span>
         <h3>نقطة بيع سريعة للمندوب</h3>
-        <p>أول ما الموظف يدخل بتفتح معاه شاشة البيع على طول. يختار الزبون، يحدد الأصناف بلمسات سريعة، ويختار كاش أو آجل أو دفع جزء. ويطبع الإيصال على طابعة بلوتوث حرارية أو يبعته PDF على الواتساب.</p>
+        <p>أول ما المندوب يدخل بتفتح معاه شاشة البيع على طول. يختار الزبون، يحدد الأصناف بلمسات سريعة، ويختار كاش أو آجل أو دفع جزء. وبعد الحفظ يبعت الفاتورة PDF للزبون على الواتساب من غير نت.</p>
       </div>
       <div class="card reveal">
         <span class="tag b">ذكاء اصطناعي</span>
-        <h3>قراءة فواتير الموردين (AI OCR)</h3>
-        <p>صوّر الفاتورة الورقية (أو كذا صورة لو طويلة، أو PDF) والنظام بيطلّع الأصناف والكميات وأسعار الشراء في ثواني. وبيتعرف لوحده على البونص المجاني وبيسجله بتكلفة صفر.</p>
+        <h3>قراءة فواتير الموردين بالصورة</h3>
+        <p>صوّر الفاتورة الورقية (أو كذا صورة لو طويلة، أو PDF) والتطبيق بيطلّع الأصناف والكميات وأسعار الشراء في ثواني. وبيتعرف لوحده على البونص المجاني وبيسجله بتكلفة صفر.</p>
       </div>
       <div class="card reveal">
         <span class="tag b">مخزون</span>
-        <h3>متوسط التكلفة المرجح (WAC)</h3>
-        <p>متوسط تكلفة البضاعة بيتحسب لوحده وبالقرش مع كل فاتورة شراء جديدة، عشان عمرك ما تبيع صنف بخسارة.</p>
+        <h3>متوسط التكلفة بالقرش</h3>
+        <p>متوسط تكلفة كل صنف بيتحسب لوحده وبالقرش مع كل فاتورة شراء جديدة، فتعرف تكلفتك الحقيقية وتسعّر صح.</p>
       </div>
       <div class="card reveal">
         <span class="tag r">مرونة</span>
         <h3>البيع بالسالب</h3>
-        <p>البيع مش هيقف لو الصنف لسه ما اتسجلش في المخزن. النظام بيسمح بالبيع والكميات بتتظبط لوحدها لما تسجّل فاتورة الشراء.</p>
+        <p>البيع مش هيقف لو الصنف لسه ما اتسجلش في المخزن. التطبيق بيسمح بالبيع والكميات بتتظبط لوحدها لما تسجّل فاتورة الشراء.</p>
       </div>
       <div class="card reveal">
         <span class="tag a">تنظيم</span>
         <h3>دمج الأصناف المكررة</h3>
-        <p>لو نفس الصنف اتضاف باسمين مختلفين، بتدمجهم بلمسة زرار عشان توحّد الرصيد وتظبط التكلفة وتعلّم الذكاء الاصطناعي الاسم الصح.</p>
+        <p>لو نفس الصنف اتضاف باسمين مختلفين، بتدمجهم بلمسة زرار عشان توحّد الرصيد وتظبط التكلفة وتعلّم قراءة الفواتير الاسم الصح.</p>
       </div>
       <div class="card reveal">
         <span class="tag g">أمان</span>
-        <h3>نسخ احتياطي واستعادة</h3>
-        <p>نسخة كاملة من بيانات المحل وحساباته بضغطة زرار من الإعدادات. والاستعادة للمالك الرئيسي بس عشان الحسابات تفضل في أمان.</p>
+        <h3>نسخة احتياطية واسترجاع</h3>
+        <p>نسخة كاملة من بيانات المحل وحساباته بضغطة زرار من الإعدادات. والاسترجاع لصاحب المحل بس عشان الحسابات تفضل في أمان.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag b">سرعة</span>
+        <h3>صوّر من غير ما تستنى</h3>
+        <p>صوّر فاتورة ورا التانية، وكل واحدة بتتحفظ في ثانية. وقايمة "فواتير تحت القراءة" بتوريك حالة كل فاتورة لحد ما تبقى جاهزة للمراجعة.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag g">أمان</span>
+        <h3>مسحت التطبيق؟ ارجع لوحدك</h3>
+        <p>لو صاحب المحل مسح التطبيق ونزّله تاني على نفس الموبايل، يكتب سيريال المحل ويرجع على طول من غير ما يكلم الدعم.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag a">حسابات</span>
+        <h3>الدفع الزيادة بيتسجل لوحده</h3>
+        <p>لو العميل دفع أكتر من الفاتورة، الزيادة بتتسجل لوحدها سند قبض في حسابه، ورسالة الحفظ بتقولك كده.</p>
+      </div>
+      <div class="card card-wide-lg reveal">
+        <span class="tag r">مناديب</span>
+        <h3>أرباح المناديب مظبوطة</h3>
+        <p>تكلفة كل صنف في فواتير المندوب بتتحسب من متوسط التكلفة اللي عند صاحب المحل وقت الاستلام، فأرباح مبيعات المناديب بتطلع صح.</p>
       </div>
     </div>
   </div>
@@ -650,23 +695,23 @@
     <div class="steps">
       <div class="step reveal">
         <div class="num">1</div>
-        <h3>فعّل سيريال المتجر</h3>
-        <p>افتح التطبيق على موبايلك، اكتب سيريال المتجر، ودوس "تفعيل". جهازك بيتسجل كمالك رئيسي والسيريال بيتقفل على أي جهاز تاني.</p>
+        <h3>فعّل سيريال المحل</h3>
+        <p>افتح التطبيق على موبايلك، اكتب سيريال المحل، ودوس "تفعيل". موبايلك بيتسجل كصاحب المحل، والسيريال ما ينفعش يتفعّل على أي موبايل تاني.</p>
       </div>
       <div class="step reveal">
         <div class="num">2</div>
-        <h3>ولّد كود انضمام للموظف</h3>
-        <p>من "أجهزة المتجر السحابية" دوس "إضافة جهاز جديد"، اختار مدير أو موظف، وانسخ كود الـ 6 أرقام. الموظف يكتبه ويشتغل على طول.</p>
+        <h3>اعمل كود انضمام لفريقك</h3>
+        <p>من "أجهزة المحل" في الإعدادات دوس "إضافة جهاز"، اختار مدير أو مندوب، وانسخ كود الـ 6 أرقام. هو يكتبه ويشتغل على طول.</p>
       </div>
       <div class="step reveal">
         <div class="num">3</div>
         <h3>صوّر فواتير الموردين</h3>
-        <p>مع كل بضاعة جديدة، صورة واحدة بالكاميرا والذكاء الاصطناعي بيسجل الأصناف والكميات والأسعار وبيحدّث المخزن ومتوسط التكلفة.</p>
+        <p>مع كل بضاعة جديدة، صورة واحدة بالكاميرا والتطبيق بيسجل الأصناف والكميات والأسعار وبيحدّث المخزن ومتوسط التكلفة.</p>
       </div>
       <div class="step reveal">
         <div class="num">4</div>
-        <h3>بيع وحصّل وزامن</h3>
-        <p>المناديب بيبيعوا ويحصّلوا من نقطة البيع، وفي آخر اليوم بيبعتوا مبيعاتهم بملف مشفر على الواتساب أو بتتزامن على السحابة لوحدها.</p>
+        <h3>بيع وحصّل وابعت الشغل</h3>
+        <p>المناديب بيبيعوا ويحصّلوا من نقطة البيع، وفي آخر اليوم بيبعتوا شغلهم في ملف على الواتساب أو أي تطبيق، أو بيتحدث عبر الإنترنت لوحده.</p>
       </div>
     </div>
 
@@ -683,37 +728,37 @@
   </div>
 </section>
 
-<!-- ====== Sync ====== -->
-<section class="section" id="sync" style="background: var(--bg-soft);">
+<!-- ====== Team exchange ====== -->
+<section class="section" id="exchange" style="background: var(--bg-soft);">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">المزامنة الهجينة</span>
-      <h2>في الميدان بالواتساب.. أو على السحابة في الخلفية</h2>
+      <span class="eyebrow">تبادل الشغل مع الفريق</span>
+      <h2>في الشارع بملف على الواتساب.. أو عبر الإنترنت في الخلفية</h2>
       <p>طريقتين بيكملوا بعض ومناسبين للأسواق والمناطق اللي الشبكة فيها ضعيفة أو مقطوعة.</p>
     </div>
     <div class="sync-grid">
       <div class="card sync-card reveal">
         <span class="tag g">من غير إنترنت</span>
-        <h3>مزامنة ميدانية بملف .kaysync مشفر</h3>
+        <h3>التحديث بالملف</h3>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> في آخر اليوم المندوب بيدوس زرار واحد: "تصدير مبيعات اليوم للمالك".</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> بيتعمل ملف مشفر فيه فواتير وتحصيلات اليوم بس، من غير أي بيانات تكلفة أو أرباح.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> الواتساب بيفتح لوحده والمندوب بيبعت الملف للمالك.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> المالك بيدوس "استيراد مبيعات المندوب": الملف بيتفك تشفيره، توقيع المندوب بيتطابق، وكل حاجة بتدخل الحسابات من غير تكرار.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> في آخر اليوم المندوب بيدوس زرار واحد: "ابعت شغل النهارده لصاحب المحل".</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> بيتعمل ملف مقفول فيه فواتير البيع والتحصيلات والعملاء الجداد بس، من غير أي تكلفة أو أرباح.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> المندوب بيبعت الملف لصاحب المحل على الواتساب أو أي تطبيق.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> صاحب المحل بيدوس "استلم ملف": التطبيق بيتأكد إن الملف جاي من موبايل المندوب فعلاً، وبيضيف كل حاجة للحسابات، ونفس الملف ما بيتستلمش مرتين.</li>
         </ul>
       </div>
       <div class="card sync-card reveal">
         <span class="tag b">تلقائي</span>
-        <h3>مزامنة سحابية هادئة</h3>
+        <h3>التحديث عبر الإنترنت (اختياري)</h3>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> بتشتغل في الخلفية بأقل استهلاك للباقة أول ما الإنترنت يبقى موجود.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> بترفع الفواتير والتحصيلات وحركات الأصناف على دفعات منظمة.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> خيار "المحلي فقط" بيقفل الاتصال بالسحابة خالص وكل وظائف البيع والجرد بتفضل شغالة.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> بيشتغل لوحده في الخلفية أول ما الإنترنت يبقى موجود.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> بيرفع الفواتير والتحصيلات وحركات الأصناف على دفعات.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> لو عايز التطبيق يشتغل على موبايلك بس، تقفله من الإعدادات، والبيع والجرد وقراءة الفواتير بيفضلوا شغالين.</li>
         </ul>
       </div>
     </div>
 
-    <div class="sync-diagram reveal" aria-label="رسم توضيحي: موبايل المندوب بيبعت ملف مشفر على الواتساب لموبايل المالك">
+    <div class="sync-diagram reveal" aria-label="رسم توضيحي: موبايل المندوب بيبعت ملف مقفول على الواتساب لموبايل صاحب المحل">
       <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" role="img">
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
@@ -733,7 +778,7 @@
           <rect x="0" y="0" width="90" height="140" rx="16" fill="var(--bg-soft)" stroke="var(--border)" stroke-width="2"/>
           <rect x="10" y="14" width="70" height="100" rx="8" fill="var(--bg-elev)"/>
           <text x="45" y="60" text-anchor="middle" font-size="28">👑</text>
-          <text x="45" y="98" text-anchor="middle" font-size="13" font-weight="800" fill="var(--text)" font-family="Cairo, sans-serif">المالك</text>
+          <text x="45" y="98" text-anchor="middle" font-size="12" font-weight="800" fill="var(--text)" font-family="Cairo, sans-serif">صاحب المحل</text>
           <circle cx="45" cy="126" r="5" fill="var(--border)"/>
         </g>
         <!-- Arrow rep -> whatsapp -->
@@ -746,12 +791,12 @@
         <!-- File label -->
         <g transform="translate(300 20)">
           <rect x="0" y="0" width="180" height="30" rx="15" fill="var(--primary-soft)"/>
-          <text x="90" y="21" text-anchor="middle" font-size="13" font-weight="800" fill="var(--primary)" font-family="Cairo, sans-serif">مبيعات_اليوم.kaysync 🔒</text>
+          <text x="90" y="21" text-anchor="middle" font-size="13" font-weight="800" fill="var(--primary)" font-family="Cairo, sans-serif">شغل_النهارده 🔒</text>
         </g>
         <!-- Arrow whatsapp -> owner -->
         <path d="M345 100 L150 100" stroke="var(--primary)" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arr)"/>
-        <text x="245" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text-muted)" font-family="Cairo, sans-serif">فك التشفير + مطابقة التوقيع + إدخال من غير تكرار</text>
-        <text x="490" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text-muted)" font-family="Cairo, sans-serif">تصدير بلمسة واحدة</text>
+        <text x="245" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text-muted)" font-family="Cairo, sans-serif">استلم ملف + اتأكد إنه من المندوب + من غير تكرار</text>
+        <text x="490" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text-muted)" font-family="Cairo, sans-serif">ابعت بلمسة واحدة</text>
       </svg>
     </div>
   </div>
@@ -763,16 +808,16 @@
     <div class="section-head reveal">
       <span class="eyebrow">نظام الصلاحيات الثلاثي</span>
       <h2>كل واحد يشوف اللي يخصه بس</h2>
-      <p>أسرار المحل محمية بتلات رتب واضحة. والمالك بيتحكم في كل حاجة من موبايله.</p>
+      <p>أسرار المحل محمية بتلات رتب واضحة. وصاحب المحل بيتحكم في كل حاجة من موبايله.</p>
     </div>
     <div class="grid grid-3">
       <div class="card role-card reveal">
-        <span class="badge" style="background: var(--amber-soft); color: var(--amber);">👑 المالك</span>
+        <span class="badge" style="background: var(--amber-soft); color: var(--amber);">👑 صاحب المحل</span>
         <h4>الصلاحيات</h4>
         <ul class="ok">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> كل التقارير المالية وأسعار الشراء ومتوسطات التكلفة</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> إدارة موبايلات الفريق وعمل أكواد الانضمام</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> النسخ الاحتياطي والاستعادة الكاملة</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> إدارة أجهزة المحل وعمل أكواد الانضمام</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> النسخة الاحتياطية واسترجاعها</li>
         </ul>
         <h4>المحجوب</h4>
         <ul class="no">
@@ -780,31 +825,31 @@
         </ul>
       </div>
       <div class="card role-card reveal">
-        <span class="badge" style="background: var(--primary-soft); color: var(--primary);">💼 المدير / المشرف</span>
+        <span class="badge" style="background: var(--primary-soft); color: var(--primary);">💼 مدير</span>
         <h4>الصلاحيات</h4>
         <ul class="ok">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> حركات البيع والشراء وإدخال فواتير الموردين</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> إدارة المخزون وسندات القبض والصرف</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> كشوف الحسابات</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> كشوف الحسابات وأخذ نسخة احتياطية</li>
         </ul>
         <h4>المحجوب</h4>
         <ul class="no">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> عمل أكواد لأجهزة جديدة أو إلغاء الترخيص</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> تعديل باقة المتجر</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> إضافة أجهزة المحل وإلغاءها</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> استرجاع نسخة احتياطية</li>
         </ul>
       </div>
       <div class="card role-card reveal">
-        <span class="badge" style="background: var(--green-soft); color: var(--green);">👤 الموظف / المندوب</span>
+        <span class="badge" style="background: var(--green-soft); color: var(--green);">👤 مندوب</span>
         <h4>الصلاحيات</h4>
         <ul class="ok">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> نقطة البيع السريعة وإصدار فواتير المبيعات</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> تسجيل سندات التحصيل النقدي</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> تسجيل سندات التحصيل</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> البحث في دليل العملاء</li>
         </ul>
         <h4>محجوب عنه خالص</h4>
         <ul class="no">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> أسعار الشراء وتكاليف البضاعة وهوامش الربح</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> قوائم الموردين وتعديل كميات المخزن يدوياً</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> سعر الشراء والتكلفة والأرباح</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> الموردين وتعديل كمية المخزن بإيده</li>
         </ul>
       </div>
     </div>
@@ -812,15 +857,62 @@
     <div class="kill reveal">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.4 5.6a9 9 0 1 1-12.8 0"/><path d="M12 2v10"/></svg></div>
       <div style="flex:1; min-width: 240px;">
-        <h3>إلغاء الترخيص الفوري (Kill-Switch)</h3>
-        <p>ضاع موبايل المندوب أو الموظف ساب الشغل؟ دوسة واحدة على "إلغاء الترخيص" والتطبيق بيتجمد على موبايله فوراً وبيترمي على شاشة التفعيل، والمقعد بيتفضى في باقة متجرك.</p>
+        <h3>إلغاء الجهاز في ثانية</h3>
+        <p>ضاع موبايل المندوب أو حد ساب الشغل؟ تدوس علامة الإلغاء جنب جهازه في "أجهزة المحل"، والتطبيق على موبايله بيرجع لشاشة التفعيل وما يقدرش يفتح بيانات المحل، وأي ملف جاي منه بيترفض. ومكان الجهاز بيفضى في باقتك.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ====== Pricing ====== -->
+<section class="section" id="pricing" style="background: var(--bg-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">الباقات</span>
+      <h2>جرّب أسبوع ببلاش.. وبعدين اختار باقتك</h2>
+      <p>الباقات بالمدة وبعدد الأجهزة، وكلها فيها كل مميزات التطبيق.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card plan reveal">
+        <span class="tag g">ابدأ بيها</span>
+        <h3>التجربة المجانية</h3>
+        <div class="price">ببلاش <small>/ أسبوع</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 3 أجهزة: موبايلك + 2 لفريقك</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> كل مميزات التطبيق</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> بياناتك بتفضل لما تشترك</li>
+        </ul>
+        <a class="btn btn-outline js-wa" data-wa-msg="عايز أبدأ التجربة المجانية لمحلي على تطبيق قارئ الفواتير الذكي" href="#" target="_blank" rel="noopener">ابدأ التجربة المجانية</a>
+      </div>
+      <div class="card plan reveal">
+        <span class="tag b">شهري</span>
+        <h3>الباقة الشهرية</h3>
+        <div class="price">500 ج <small>/ شهر</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 3 أجهزة: موبايلك + 2 لفريقك</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> كل مميزات التطبيق</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> بتجدد كل شهر</li>
+        </ul>
+        <a class="btn btn-outline js-wa" data-wa-msg="عايز الباقة الشهرية لمحلي على تطبيق قارئ الفواتير الذكي" href="#" target="_blank" rel="noopener">اطلب الباقة الشهرية</a>
+      </div>
+      <div class="card plan featured reveal">
+        <span class="tag a">توفير 4000 ج مقارنة بالشهري</span>
+        <h3>الباقة السنوية</h3>
+        <div class="price">2000 ج <small>/ سنة</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 5 أجهزة: موبايلك + 4 لفريقك</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> كل مميزات التطبيق</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> سنة كاملة من غير تجديد كل شهر</li>
+        </ul>
+        <a class="btn btn-whatsapp js-wa" data-wa-msg="عايز الباقة السنوية لمحلي على تطبيق قارئ الفواتير الذكي" href="#" target="_blank" rel="noopener">اطلب الباقة السنوية</a>
+      </div>
+    </div>
+    <p class="plans-note reveal">الدفع والتفعيل على الواتساب. موبايلك محسوب من عدد الأجهزة، ولو ألغيت جهاز مكانه بيفضى.</p>
+  </div>
+</section>
+
 <!-- ====== FAQ ====== -->
-<section class="section" id="faq" style="background: var(--bg-soft);">
+<section class="section" id="faq">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">الأسئلة الشائعة</span>
@@ -829,44 +921,57 @@
     <div class="faq reveal">
       <details open>
         <summary>التطبيق بيشتغل من غير إنترنت بجد؟<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <p>أيوه. التطبيق مبني على مبدأ "المحلي الأول". البيع والتحصيل والجرد وطباعة الفواتير كلها بتشتغل عادي حتى لو الإنترنت اتقطع خالص، والمزامنة السحابية بتكمّل لوحدها لما الشبكة ترجع.</p>
+        <p>أيوه. البيع والتحصيل والجرد وعمل الفاتورة ومشاركتها PDF كلها بتشتغل والنت مقطوع. ولو التحديث عبر الإنترنت شغال، بيكمّل لوحده لما الشبكة ترجع.</p>
+      </details>
+      <details>
+        <summary>النت مطلوب في إيه بالظبط؟<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>في 3 حاجات بس: أول تفعيل للموبايل، وقراءة فواتير الموردين بالصورة، والتحديث عبر الإنترنت لو شغّلته. غير كده كل حاجة شغالة من غير نت.</p>
+      </details>
+      <details>
+        <summary>محتاج أدفع حاجة عشان قراءة الفواتير؟<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>لأ. قراءة الفواتير بتشتغل بـ "مفتاح خدمة قراءة الفواتير"، وده مفتاح مجاني من جوجل بتعمله بنفسك من الإعدادات في 3 خطوات: تفتح صفحة المفتاح، وتنسخه، وتلصقه في التطبيق. ولو احتجت مساعدة إحنا معاك.</p>
       </details>
       <details>
         <summary>لو موبايل المندوب ضاع أو اتسرق؟<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <p>من شاشة "أجهزة المتجر السحابية" بتدوس "إلغاء الترخيص" جنب اسم الجهاز. على طول التطبيق بيتجمد على الموبايل ده وبيترمي على شاشة التفعيل، ومش هيقدر يشوف سجلات الزباين أو الفواتير.</p>
+        <p>من "أجهزة المحل" في الإعدادات تدوس علامة الإلغاء جنب الجهاز. على طول التطبيق على الموبايل ده بيرجع لشاشة التفعيل، وما يقدرش يفتح بيانات المحل.</p>
       </details>
       <details>
-        <summary>الموظف يقدر يشوف أسعار الشراء أو أرباحي؟<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <p>لأ. رتبة الموظف محجوب عنها خالص أسعار الشراء، وتكاليف البضاعة، وقوايم الموردين، وهوامش الربح، وتعديل كميات المخزن يدوي. حتى ملف المزامنة الميداني بيتصدّر من غير أي بيانات تكلفة.</p>
+        <summary>المندوب يقدر يشوف أسعار الشراء أو أرباحي؟<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>لأ. المندوب عمره ما يشوف سعر الشراء ولا التكلفة ولا الموردين ولا الأرباح، وما يقدرش يعدّل كمية المخزن بإيده. وحتى الملف اللي بيبعته أو بيستلمه مفيهوش أي تكلفة أو أرباح.</p>
       </details>
       <details>
         <summary>كود الانضمام صالح قد إيه؟<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <p>كود الانضمام الـ 6 أرقام صالح 15 دقيقة بس للأمان، وبيتستخدم مرة واحدة. أول ما الموظف يكتبه، جهازه بيتسجل بالرتبة اللي انت حددتها من غير أي باسورد إضافي.</p>
+        <p>كود الانضمام الـ 6 أرقام صالح 15 دقيقة بس للأمان، وبيتستخدم مرة واحدة. أول ما المدير أو المندوب يكتبه، موبايله بيتفعّل بالرتبة اللي انت حددتها من غير أي باسورد إضافي.</p>
       </details>
       <details>
-        <summary>أقدر أقفل الاتصال بالسحابة وأشتغل محلي بس؟<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <p>أيوه. في الإعدادات فيه خيار "المحلي فقط" بيقفل الاتصال بالسحابة خالص وكل وظائف البيع والجرد بتفضل شغالة. وتقدر تاخد نسخة احتياطية كاملة بضغطة زرار في أي وقت.</p>
+        <summary>لما الباقة تخلص بيحصل إيه؟<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>بياناتك بتفضل محفوظة على موبايلك وعلى موبايل كل واحد في فريقك برتبته، ولو التحديث عبر الإنترنت شغال بتبقى محفوظة أونلاين كمان. ولو جددت بتكمّل من مكان ما وقفت.</p>
+      </details>
+      <details>
+        <summary>أقدر أقفل التحديث عبر الإنترنت؟<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>أيوه. من كارت "تحديث البيانات عبر الإنترنت (اختياري)" في الإعدادات تقفله، والتطبيق يشتغل على موبايلك بس، والبيع والجرد وقراءة الفواتير بيفضلوا شغالين. وتقدر تاخد نسخة احتياطية كاملة بضغطة زرار في أي وقت.</p>
       </details>
     </div>
   </div>
 </section>
 
 <!-- ====== Contact form ====== -->
-<section class="section" id="contact">
+<section class="section" id="contact" style="background: var(--bg-soft);">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">كلمنا</span>
       <h2>سيب بياناتك وهنكلمك</h2>
-      <p>املا الفورم ده وهنتواصل معاك في أقرب وقت عشان نفعّلك سيريال متجرك ونجاوب على أي سؤال.</p>
+      <p>املا الفورم ده وهنتواصل معاك في أقرب وقت عشان نفعّلك سيريال محلك ونجاوب على أي سؤال.</p>
     </div>
     <div class="contact-grid">
       <div class="card contact-info reveal">
         <h3>ليه تكلمنا؟</h3>
         <p>هنفهم طبيعة شغلك ونساعدك تبدأ صح من أول يوم.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> تفعيل سيريال المتجر</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> تفعيل سيريال المحل</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> شرح التطبيق لك ولفريقك</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> مساعدة في إدخال أول فواتير الموردين</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> مساعدة في عمل مفتاح خدمة قراءة الفواتير</li>
         </ul>
         <p>مستعجل؟ كلمنا على الواتساب على طول.</p>
         <a class="btn btn-whatsapp js-wa" href="#" target="_blank" rel="noopener">
@@ -930,10 +1035,10 @@
   <div class="container">
     <div class="cta-box reveal">
       <h2>جاهز تظبط حسابات محلك من موبايلك؟</h2>
-      <p>اطلب سيريال متجرك دلوقتي على الواتساب وابدأ التفعيل في دقايق.</p>
+      <p>ابدأ بأسبوع مجاني: اطلب سيريال محلك على الواتساب وابدأ التفعيل في دقايق.</p>
       <a class="btn btn-whatsapp btn-lg js-wa" href="#" target="_blank" rel="noopener" style="background:#fff; color: var(--primary-strong); box-shadow: 0 10px 30px rgba(0,0,0,.2);">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.1.6 2.9.5a2.5 2.5 0 0 0 1.6-1.1c.2-.6.2-1 .1-1.1l-.6-.3z"/></svg>
-        اطلب سيريال متجرك على واتساب
+        ابدأ التجربة المجانية على واتساب
       </a>
     </div>
   </div>
@@ -944,11 +1049,12 @@
 <!-- ====== Footer ====== -->
 <footer class="footer">
   <div class="container row">
-    <div>© <span id="year"></span> قارئ الفواتير الذكي. جميع الحقوق محفوظة · مالك التطبيق: <strong>إسلام محمد</strong></div>
+    <div>© <span id="year"></span> قارئ الفواتير الذكي. جميع الحقوق محفوظة · تصميم وتطوير: <strong>إسلام محمد</strong></div>
     <div class="links">
       <a href="#features">المميزات</a>
       <a href="#how">بيشتغل إزاي</a>
       <a href="#roles">الصلاحيات</a>
+      <a href="#pricing">الباقات</a>
       <a href="#faq">الأسئلة</a>
       <a href="#contact">كلمنا</a>
     </div>
@@ -962,7 +1068,7 @@
 <script>
   // ====== غيّر الرقم هنا (بصيغة دولية بدون + أو مسافات، مثال: 201001234567) ======
   const WHATSAPP_NUMBER = "201069160401";
-  const WHATSAPP_MESSAGE = "عايز أطلب سيريال متجر لتطبيق قارئ الفواتير الذكي";
+  const WHATSAPP_MESSAGE = "عايز أطلب سيريال محل لتطبيق قارئ الفواتير الذكي وأبدأ التجربة المجانية";
   // ==================================================================================
 
   // ====== بيانات Supabase (من Project Settings > API) ======
@@ -973,9 +1079,12 @@
   // ==========================================================
 
   (function () {
-    const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WHATSAPP_MESSAGE);
-    const waUrl = url;
-    document.querySelectorAll(".js-wa").forEach(function (a) { a.href = url; });
+    const waLink = function (msg) {
+      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
+    };
+    const waUrl = waLink(WHATSAPP_MESSAGE);
+    // Plan buttons carry their own message in data-wa-msg
+    document.querySelectorAll(".js-wa").forEach(function (a) { a.href = waLink(a.dataset.waMsg || WHATSAPP_MESSAGE); });
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
