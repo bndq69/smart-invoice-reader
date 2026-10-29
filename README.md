@@ -1,35 +1,37 @@
-# قارئ الفواتير الذكي – صفحة الهبوط
+# قارئ الفواتير الذكي – الموقع
 
-صفحة هبوط لتطبيق **قارئ الفواتير الذكي**: نظام إدارة المحل والمخزن لتجار القطاعي والجملة والموزعين، بيشتغل من غير إنترنت وبيقرا فواتير الموردين بالذكاء الاصطناعي.
+موقع تطبيق **قارئ الفواتير الذكي**: نظام إدارة المحل والمخزن لتجار القطاعي والجملة والموزعين، بيشتغل من غير إنترنت وبيقرا فواتير الموردين بالذكاء الاصطناعي.
 
-## المحتوى
+الموقع بيتبني من جديد بـ **Next.js**، وتسجيل الدخول بـ **Clerk**، والنشر هيبقى على **Render**.
 
-- `index.html` – الصفحة كاملة في ملف واحد (HTML + CSS + JS) بدون أي أدوات بناء.
+> صفحة الـ HTML القديمة المنشورة محفوظة في برانش `landing-html`، و Cloudflare و GitHub Pages بينشروا منه. البرانش ده متقفل، محدش يعدّل فيه.
 
-## التشغيل
+## التشغيل على جهازك
 
-افتح `index.html` مباشرة في المتصفح، أو ارفعه على أي استضافة ثابتة.
+1. اعمل ملف `.env.local` فيه مفاتيح Clerk (من [Clerk Dashboard](https://dashboard.clerk.com) > **API keys**):
 
-## تغيير رقم الواتساب
+   ```
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
+   CLERK_SECRET_KEY=sk_test_...
+   ```
 
-في آخر الملف داخل وسم `<script>`:
+2. شغّل:
 
-```js
-const WHATSAPP_NUMBER = "201069160401";
-```
+   ```bash
+   npm install
+   npm run dev
+   ```
 
-اكتب الرقم بالصيغة الدولية بدون `+` أو مسافات.
+3. افتح `http://localhost:3000`.
 
-## ربط فورم التواصل بـ Supabase
+> ملف `.env.local` مش بيترفع على GitHub. ممنوع تحط الـ `CLERK_SECRET_KEY` في أي ملف بيترفع.
 
-1. من Supabase افتح **SQL Editor** وشغّل الملف `supabase/contact_requests.sql` مرة واحدة.
-2. من **Project Settings > API** انسخ الـ Project URL والـ anon (public) key.
-3. حطهم في `index.html` مكان `YOUR_SUPABASE_URL` و `YOUR_SUPABASE_ANON_KEY`.
-4. اعمل commit و push، وCloudflare Pages هينشر التعديل لوحده.
+## الملفات
 
-الطلبات بتظهر في **Table Editor > contact_requests**. الزوار يقدروا يضيفوا طلبات بس، ومحدش يقدر يقراها غيرك من لوحة Supabase.
-
-> ممنوع تحط الـ service_role key في الصفحة أبداً.
+- `app/` – صفحات Next.js.
+- `public/assets/` – صور التطبيق (الأيقونة وصورة الشاشة الرئيسية).
+- `supabase/contact_requests.sql` – جدول طلبات فورم التواصل في Supabase.
+- `PROGRESS.md` – سجل تطور المشروع.
 
 ---
 

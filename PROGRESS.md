@@ -4,20 +4,15 @@
 
 ## الوضع الحالي
 
-- **الموقع المنشور:** صفحة `index.html` ثابتة (HTML + Supabase للفورم + زراير واتساب). نسختها النهائية محفوظة في برانش `landing-html` على commit `10e72ef`، ومحدش يعدّل فيها.
-- **`main`:** هنكمل عليه المرحلة الجديدة: الصفحة بـ Next.js، وتسجيل دخول بـ Clerk، والنشر على Render.
-- **أول خطوة في Next.js:** مشروع `my-clerk-next-app/` (Next.js 16 + Clerk + Tailwind). شغال على `localhost:3000` والـ build بيعدّي. الصفحة الرئيسية لسه الافتراضية.
+- **الموقع المنشور:** صفحة HTML ثابتة (Supabase للفورم + زراير واتساب) على برانش `landing-html` (commit `10e72ef`)، متقفل ومحدش يعدّل فيه. Cloudflare Workers و GitHub Pages الاتنين بينشروا منه بس.
+- **`main`:** مشروع Next.js 16 + Clerk + Tailwind في أول الريبو. الـ build بيعدّي، وبيشتغل على `localhost:3000` بزراير Sign in / Sign up. الصفحة الرئيسية لسه الافتراضية بتاعة Next.
+- صور التطبيق في `public/assets/`، وجدول فورم التواصل في `supabase/contact_requests.sql`.
 
 ## حاجات مفتوحة
 
-- [x] برانش `landing-html` اترفع على GitHub.
-- [x] Cloudflare (Worker `smart-invoice-reader`، Workers Builds) بقى بيبني من `landing-html` بس.
-- [x] GitHub Pages اتحوّل لـ `landing-html`. كده النسختين المنشورتين بيبنوا من `landing-html` بس، و`main` بقى حر للشغل الجديد.
-- [x] البرانش الغريب `333...333` اتمسح من GitHub.
-- [x] كود Clerk المكتوب JavaScript عادي اتشال من `index.html` و`README.md`.
-- [x] `AGENTS.md` و`PROGRESS.md` و`docs/` و`.agents/` و`skills-lock.json` اتعملهم commit على `main`.
-- [ ] `my-clerk-next-app/` لسه من غير commit. محتاج قرار: يفضل فولدر جوه الريبو، ولا محتواه يطلع لأول الريبو بدل `index.html`.
-- [ ] نقل محتوى الـ landing لصفحة Next.js.
+- [ ] نقل محتوى الـ landing لصفحة Next.js (الـ HTML موجود في `landing-html` كمرجع).
+- [ ] النشر على Render (لسه ما اتعملش service).
+- [ ] skill `pre-deploy-check` مكتوب للـ `index.html` القديم، ومحتاج يتحدث لمشروع Next.js.
 - [ ] Clerk فيه development instance بس. قبل النشر الحقيقي: `clerk deploy`.
 - [ ] hook إضافة Render بيطلع error بسبب المسافة في `C:\Users\NEW LAP`.
 
@@ -29,7 +24,9 @@
 - اتعمل برانش `landing-html` على `10e72ef` واترفع على GitHub.
 - Cloudflare Workers Builds اتحوّل من `main` لـ `landing-html`. الموقع على `smart-invoice-reader.islambndq.workers.dev` شغال (200).
 - GitHub Pages اتحوّل لـ `landing-html`، و `bndq69.github.io/smart-invoice-reader` شغال (200). نسخة الـ HTML اتقفلت.
+- اتمسح البرانش الغريب `333...333` من GitHub.
 - `main` اتنضّف: كود Clerk القديم اتشال، وملفات الـ agents و`PROGRESS.md` اتعملهم commit.
+- مشروع `my-clerk-next-app/` طلع لأول الريبو بدل `index.html`. الصور اتنقلت لـ `public/assets/`، واسم الـ package بقى `smart-invoice-reader`، و README اتكتب من جديد للمشروع الجديد.
 
 ### 2026-10-28
 - الصفحة اتظبطت على التطبيق: أسعار، أيقونة التطبيق الحقيقية، صورة الشاشة الرئيسية، و og:image لمعاينة اللينكات.
