@@ -1,0 +1,464 @@
+{
+  "meta": {
+    "title": "Smart Invoice Reader | Run your shop and stock, and sell without internet",
+    "description": "Snap a photo of a supplier invoice and the app reads it in seconds. Fast point of sale, accurate credit accounts, control over your team's devices, and selling without internet. Start with a free week.",
+    "ogTitle": "Smart Invoice Reader",
+    "ogDescription": "Snap the supplier invoice, and your stock updates itself. Sell and count stock without internet, protect your profits, and manage your team. Start with a free week.",
+    "author": "Islam Mohamed"
+  },
+  "whatsapp": {
+    "defaultMessage": "I'd like to request a shop serial for Smart Invoice Reader and start the free trial",
+    "fabLabel": "Message us on WhatsApp"
+  },
+  "header": {
+    "brand": "Smart Invoice Reader",
+    "navLabel": "Main menu",
+    "nav": [
+      {
+        "href": "#features",
+        "label": "Features"
+      },
+      {
+        "href": "#how",
+        "label": "How it works"
+      },
+      {
+        "href": "#exchange",
+        "label": "Sharing work"
+      },
+      {
+        "href": "#roles",
+        "label": "Roles"
+      },
+      {
+        "href": "#pricing",
+        "label": "Plans"
+      },
+      {
+        "href": "#faq",
+        "label": "FAQ"
+      },
+      {
+        "href": "#contact",
+        "label": "Contact us"
+      }
+    ],
+    "mobileNav": [
+      {
+        "href": "#features",
+        "label": "Features"
+      },
+      {
+        "href": "#how",
+        "label": "How it works"
+      },
+      {
+        "href": "#exchange",
+        "label": "Sharing work"
+      },
+      {
+        "href": "#roles",
+        "label": "Roles"
+      },
+      {
+        "href": "#pricing",
+        "label": "Plans"
+      },
+      {
+        "href": "#faq",
+        "label": "Frequently asked questions"
+      },
+      {
+        "href": "#contact",
+        "label": "Contact us"
+      }
+    ],
+    "cta": "Get your shop serial",
+    "openMenu": "Open menu",
+    "switchLanguage": "العربية",
+    "switchLanguageLabel": "التحويل للعربي",
+    "themeToggle": "Toggle light and dark mode"
+  },
+  "hero": {
+    "eyebrow": "Sell, collect payments and count stock without internet",
+    "titleStart": "Snap the supplier invoice,",
+    "titleAccent": "and your stock updates itself",
+    "sub": "A shop and stock management app for retailers, wholesalers and distributors. It reads supplier invoices with AI in seconds, works out what your goods cost you down to the piaster, tracks what customers owe you, and lets you control your team's phones from your own.",
+    "howButton": "See how it works",
+    "badges": [
+      "No complicated servers",
+      "Add your team with a 6-digit code",
+      "PDF invoices over WhatsApp"
+    ],
+    "imageAlt": "The Smart Invoice Reader home screen: scan a new invoice with the camera, from the gallery, from a PDF file, or enter it by hand",
+    "tagRead": "Invoice read in 4 seconds",
+    "tagOffline": "Sell without internet"
+  },
+  "trust": [
+    "Sell and count stock without internet",
+    "Add your team with a 6-digit code",
+    "Reads an invoice in seconds",
+    "Backup in one tap"
+  ],
+  "problems": {
+    "eyebrow": "The problems we solve",
+    "title": "Every shopkeeper knows these headaches. We fixed them.",
+    "sub": "Seven real problems that eat into your time and profits every day, and the app handles them for you.",
+    "cards": [
+      {
+        "title": "Keep your shop and its secrets safe",
+        "body": "The shop serial works only on the shop owner's phone. No sales rep can take over the shop's account or see purchase prices and profits."
+      },
+      {
+        "title": "Add your team in one tap",
+        "body": "No technical steps. You create a 6-digit join code from a panel at the bottom of the screen, copy it in one tap, and the manager's or sales rep's phone is activated straight away with the role you chose."
+      },
+      {
+        "title": "Instant control over your shop devices",
+        "body": "From your phone, remove any device in a second if the phone is lost or someone leaves, and change anyone's role with a new join code."
+      },
+      {
+        "title": "Stop losing profit",
+        "body": "When you buy the same item at different prices during the month, you end up selling at an old price and losing money. The app works out the average cost by itself, down to the piaster, with every supplier invoice, so you know your real cost and price correctly."
+      },
+      {
+        "title": "No more messy paper invoices",
+        "body": "Instead of spending hours after a long day typing supplier invoices item by item, take a quick photo or use a PDF file, and the app reads every line in seconds."
+      },
+      {
+        "title": "Accurate credit and debt accounts",
+        "body": "Close tracking of what customers and suppliers owe, receipt and payment vouchers, and a clear dated account statement. Customers are never merged behind your back, so people's debts never get mixed up."
+      },
+      {
+        "title": "Sharing work with your team",
+        "body": "Sales rep out in the street with no internet? At the end of the day they send you their work in a file over WhatsApp or any other app, or it updates online by itself if you turn that on. And the file that goes to a sales rep never contains costs or profits."
+      }
+    ]
+  },
+  "features": {
+    "eyebrow": "Everyday features",
+    "title": "Everything your shop needs, on your phone",
+    "sub": "Sales, purchases, stock, debts, and AI that works with you all day without slowing you down.",
+    "cards": [
+      {
+        "tag": "Sales",
+        "title": "Fast point of sale for sales reps",
+        "body": "As soon as a sales rep opens the app, the sales screen is right there. They pick the customer, add items with a few quick taps, and choose cash, credit or part payment. After saving, they send the customer a PDF invoice over WhatsApp, even without internet."
+      },
+      {
+        "tag": "AI",
+        "title": "Read supplier invoices from a photo",
+        "body": "Take a photo of the paper invoice (or several photos if it's long, or a PDF) and the app pulls out the items, quantities and purchase prices in seconds. It also spots free bonus items by itself and records them at zero cost."
+      },
+      {
+        "tag": "Stock",
+        "title": "Average cost to the piaster",
+        "body": "The average cost of every item is worked out automatically, down to the piaster, with every new purchase invoice, so you know your real cost and price correctly."
+      },
+      {
+        "tag": "Flexibility",
+        "title": "Selling below zero stock",
+        "body": "Sales won't stop just because an item isn't in stock yet. The app lets you sell, and the quantities correct themselves once you record the purchase invoice."
+      },
+      {
+        "tag": "Organization",
+        "title": "Merge duplicate items",
+        "body": "If the same item was added under two different names, merge them with one tap to combine the stock, fix the cost, and teach invoice reading the right name."
+      },
+      {
+        "tag": "Security",
+        "title": "Backup and restore",
+        "body": "A full copy of the shop's data and accounts with one tap from Settings. Only the shop owner can restore, so the accounts stay safe."
+      },
+      {
+        "tag": "Speed",
+        "title": "Snap without waiting",
+        "body": "Photograph one invoice after another, and each one is saved in a second. The \"Invoices being read\" list shows where each invoice is until it's ready for review."
+      },
+      {
+        "tag": "Security",
+        "title": "Deleted the app? Get back in by yourself",
+        "body": "If the shop owner deletes the app and installs it again on the same phone, they type the shop serial and are back in straight away, without calling support."
+      },
+      {
+        "tag": "Accounts",
+        "title": "Overpayments are recorded automatically",
+        "body": "If a customer pays more than the invoice, the extra is recorded automatically as a receipt voucher on their account, and the save message tells you so."
+      },
+      {
+        "tag": "Sales reps",
+        "title": "Accurate sales rep profits",
+        "body": "The cost of each item on a sales rep's invoices comes from the shop owner's average cost at the time the work is received, so profits on sales reps' sales come out right."
+      }
+    ]
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "title": "Four steps, and your shop is up and running",
+    "sub": "From activation to your first invoice in minutes, with no complicated technical steps.",
+    "steps": [
+      {
+        "title": "Activate your shop serial",
+        "body": "Open the app on your phone, type the shop serial, and tap \"Activate\". Your phone is registered as the shop owner, and the serial can't be activated on any other phone."
+      },
+      {
+        "title": "Create a join code for your team",
+        "body": "In Settings, open \"Shop devices\", tap \"Add device\", choose manager or sales rep, and copy the 6-digit code. They type it in and they're ready to go."
+      },
+      {
+        "title": "Photograph supplier invoices",
+        "body": "With every new delivery, one photo with the camera and the app records the items, quantities and prices, and updates the stock and average cost."
+      },
+      {
+        "title": "Sell, collect and send in the work",
+        "body": "Sales reps sell and collect payments from the point of sale, and at the end of the day they send their work in a file over WhatsApp or any other app, or it updates online by itself."
+      }
+    ]
+  },
+  "exchange": {
+    "eyebrow": "Sharing work with your team",
+    "title": "In the street with a file over WhatsApp, or online in the background",
+    "sub": "Two ways that work together, made for markets and areas where the signal is weak or gone.",
+    "file": {
+      "tag": "No internet needed",
+      "title": "Update by file",
+      "points": [
+        "At the end of the day, the sales rep taps one button: \"Send today's work to the shop owner\".",
+        "The app makes a locked file with only the sales invoices, collected payments and new customers, with no costs or profits.",
+        "The sales rep sends the file to the shop owner over WhatsApp or any other app.",
+        "The shop owner taps \"Receive file\": the app checks that the file really came from the sales rep's phone, adds everything to the accounts, and never takes in the same file twice."
+      ]
+    },
+    "online": {
+      "tag": "Automatic",
+      "title": "Online update (optional)",
+      "points": [
+        "Runs by itself in the background as soon as there's internet.",
+        "Uploads invoices, collected payments and stock movements in batches.",
+        "If you want the app to work only on your phone, turn it off in Settings, and selling, stock counts and invoice reading keep working."
+      ]
+    },
+    "diagram": {
+      "label": "Diagram: the sales rep's phone sends a locked file over WhatsApp to the shop owner's phone",
+      "rep": "Sales rep",
+      "owner": "Shop owner",
+      "file": "todays_work 🔒",
+      "receive": "Receive, verify, no duplicates",
+      "send": "Send in one tap"
+    }
+  },
+  "roles": {
+    "eyebrow": "Three roles",
+    "title": "Everyone sees only what concerns them",
+    "sub": "Your shop's secrets are protected by three clear roles, and the shop owner controls everything from their phone.",
+    "allowedLabel": "Can do",
+    "owner": {
+      "name": "👑 Shop owner",
+      "allowed": [
+        "All financial reports, purchase prices and average costs",
+        "Managing shop devices and creating join codes",
+        "Making and restoring backups"
+      ],
+      "blockedLabel": "Blocked",
+      "blocked": [
+        "Nothing is blocked for them"
+      ]
+    },
+    "manager": {
+      "name": "💼 Manager",
+      "allowed": [
+        "Sales and purchases, and entering supplier invoices",
+        "Managing stock, receipt and payment vouchers",
+        "Account statements and making a backup"
+      ],
+      "blockedLabel": "Blocked",
+      "blocked": [
+        "Adding and removing shop devices",
+        "Restoring a backup"
+      ]
+    },
+    "rep": {
+      "name": "👤 Sales rep",
+      "allowed": [
+        "The fast point of sale and issuing sales invoices",
+        "Recording payment collections",
+        "Searching the customer list"
+      ],
+      "blockedLabel": "Completely blocked",
+      "blocked": [
+        "Purchase prices, costs and profits",
+        "Suppliers, and changing stock quantities by hand"
+      ]
+    },
+    "kill": {
+      "title": "Remove a device in a second",
+      "body": "Sales rep lost their phone, or someone left? Tap the remove mark next to their device in \"Shop devices\". The app on their phone goes back to the activation screen and can't open the shop's data, and any file from that phone is rejected. Their device's place is freed up in your plan."
+    }
+  },
+  "pricing": {
+    "eyebrow": "Plans",
+    "title": "Try a week for free, then pick your plan",
+    "sub": "Plans are by length and number of devices, and every plan includes all the app's features.",
+    "plans": [
+      {
+        "tag": "Start here",
+        "name": "Free trial",
+        "price": "Free",
+        "period": "/ week",
+        "features": [
+          "3 devices: your phone + 2 for your team",
+          "All the app's features",
+          "Your data stays when you subscribe"
+        ],
+        "button": "Start the free trial",
+        "waMessage": "I'd like to start the free trial for my shop on Smart Invoice Reader"
+      },
+      {
+        "tag": "Monthly",
+        "name": "Monthly plan",
+        "price": "EGP 500",
+        "period": "/ month",
+        "features": [
+          "3 devices: your phone + 2 for your team",
+          "All the app's features",
+          "Renews every month"
+        ],
+        "button": "Get the monthly plan",
+        "waMessage": "I'd like the monthly plan for my shop on Smart Invoice Reader"
+      },
+      {
+        "tag": "Save EGP 4,000 compared with monthly",
+        "name": "Yearly plan",
+        "price": "EGP 2,000",
+        "period": "/ year",
+        "features": [
+          "5 devices: your phone + 4 for your team",
+          "All the app's features",
+          "A full year with no monthly renewals"
+        ],
+        "button": "Get the yearly plan",
+        "waMessage": "I'd like the yearly plan for my shop on Smart Invoice Reader"
+      }
+    ],
+    "note": "Payment and activation happen on WhatsApp. Your own phone counts towards the number of devices, and when you remove a device its place is freed up."
+  },
+  "faq": {
+    "eyebrow": "Frequently asked questions",
+    "title": "Questions shopkeepers often ask",
+    "items": [
+      {
+        "q": "Does the app really work without internet?",
+        "a": "Yes. Selling, collecting payments, counting stock, and making and sharing invoices as PDF all work with the internet off. If online update is on, it carries on by itself once the connection is back."
+      },
+      {
+        "q": "What exactly needs internet?",
+        "a": "Only 3 things: activating a phone for the first time, reading supplier invoices from a photo, and online update if you turn it on. Everything else works without internet."
+      },
+      {
+        "q": "Do I have to pay anything for invoice reading?",
+        "a": "No. Invoice reading runs on an \"invoice reading key\", a free key from Google that you create yourself from Settings in 3 steps: open the key page, copy the key, and paste it into the app. And if you need help, we're here."
+      },
+      {
+        "q": "What if a sales rep's phone is lost or stolen?",
+        "a": "In Settings, open \"Shop devices\" and tap the remove mark next to the device. Straight away the app on that phone goes back to the activation screen and can't open the shop's data."
+      },
+      {
+        "q": "Can a sales rep see purchase prices or my profits?",
+        "a": "No. A sales rep never sees purchase prices, costs, suppliers or profits, and can't change stock quantities by hand. Even the files they send or receive contain no costs or profits."
+      },
+      {
+        "q": "How long is a join code valid?",
+        "a": "The 6-digit join code is valid for only 15 minutes, for security, and can be used once. As soon as the manager or sales rep types it in, their phone is activated with the role you chose, with no extra password."
+      },
+      {
+        "q": "What happens when my plan ends?",
+        "a": "Your data stays saved on your phone and on each team member's phone according to their role, and if online update is on it's saved online too. When you renew, you carry on from where you left off."
+      },
+      {
+        "q": "Can I turn off online update?",
+        "a": "Yes. Turn it off from the \"Online data update (optional)\" card in Settings, and the app works only on your phone, while selling, stock counts and invoice reading keep working. You can also make a full backup with one tap at any time."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact us",
+    "title": "Leave your details and we'll call you",
+    "sub": "Fill in this form and we'll get in touch as soon as we can to activate your shop serial and answer any questions.",
+    "info": {
+      "title": "Why get in touch?",
+      "body": "We'll learn how your business works and help you start right from day one.",
+      "points": [
+        "Activating your shop serial",
+        "Showing you and your team how the app works",
+        "Help entering your first supplier invoices",
+        "Help creating your invoice reading key"
+      ],
+      "urgent": "In a hurry? Message us on WhatsApp right away.",
+      "whatsapp": "WhatsApp"
+    },
+    "form": {
+      "name": "Name",
+      "phone": "Mobile number",
+      "phonePlaceholder": "01xxxxxxxxx",
+      "shop": "Shop name",
+      "city": "Governorate / city",
+      "type": "Type of business",
+      "typePlaceholder": "Choose your type of business",
+      "types": {
+        "retail": "Retail shop",
+        "wholesale": "Wholesaler",
+        "distributor": "Distributor / I have sales reps",
+        "other": "Something else"
+      },
+      "message": "Your message",
+      "messagePlaceholder": "Tell us what you need or what you'd like to ask",
+      "honeypot": "Leave this field empty",
+      "submit": "Send details",
+      "errName": "Please enter your name",
+      "errPhone": "Please enter a valid Egyptian mobile number",
+      "errType": "Please choose your type of business",
+      "sending": "Sending...",
+      "sentNamed": "Thanks, {name}! We've got your details and we'll call you soon.",
+      "sent": "Thanks, we've got your details.",
+      "failStart": "Something went wrong and we couldn't send your details. Try again or message us on ",
+      "failLink": "WhatsApp",
+      "failEnd": "."
+    }
+  },
+  "cta": {
+    "title": "Ready to sort out your shop's accounts from your phone?",
+    "body": "Start with a free week: request your shop serial on WhatsApp and get activated in minutes.",
+    "button": "Start the free trial on WhatsApp"
+  },
+  "footer": {
+    "copyright": "Smart Invoice Reader. All rights reserved · Designed and built by",
+    "developer": "Islam Mohamed",
+    "links": [
+      {
+        "href": "#features",
+        "label": "Features"
+      },
+      {
+        "href": "#how",
+        "label": "How it works"
+      },
+      {
+        "href": "#roles",
+        "label": "Roles"
+      },
+      {
+        "href": "#pricing",
+        "label": "Plans"
+      },
+      {
+        "href": "#faq",
+        "label": "FAQ"
+      },
+      {
+        "href": "#contact",
+        "label": "Contact us"
+      }
+    ],
+    "signIn": "Sign in"
+  }
+}

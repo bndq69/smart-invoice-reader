@@ -38,3 +38,18 @@ grant insert (name, phone, shop_name, city, business_type, message, source_page)
 -- فهرس لعرض أحدث الطلبات بسرعة
 create index if not exists contact_requests_created_at_idx
   on public.contact_requests (created_at desc);
+
+-- =====================================================================
+-- 2026-10-29: لغة الطلب والموقع اللي جه منه
+-- الموقع الجديد (Next.js) بيبعت language و site. الموقع الاحتياطي (landing-html)
+-- متقفل ومش بيبعتهم، فالقيم الافتراضية بتعلّم طلباته: عربي ومن 'backup'.
+-- =====================================================================
+
+alter table public.contact_requests
+  add column if not exists language text not null default 'ar' check (language in ('ar', 'en')),
+  add column if not exists site     text not null default 'backup' check (site in ('new', 'backup'));
+
+comment on column public.contact_requests.language is 'لغة الصفحة اللي اتبعت منها الطلب';
+comment on column public.contact_requests.site is 'new = الموقع الجديد (Next.js)، backup = الموقع الاحتياطي (HTML)';
+
+grant insert (language, site) on public.contact_requests to anon;
