@@ -4,7 +4,8 @@
 
 ## الوضع الحالي
 
-- **الموقع المنشور:** صفحة HTML ثابتة (Supabase للفورم + زراير واتساب) على برانش `landing-html` (commit `10e72ef`)، متقفل ومحدش يعدّل فيه. Cloudflare Workers و GitHub Pages الاتنين بينشروا منه بس.
+- **الموقع الجديد (لايف):** https://smart-invoice-reader-web.onrender.com على Render (خدمة Node مجانية `smart-invoice-reader-web`، Frankfurt، من `main`، نشر تلقائي مع كل push). صفحة الإدارة على `/admin`.
+- **الموقع الاحتياطي:** صفحة HTML ثابتة على برانش `landing-html` (commit `10e72ef`)، متقفل ومحدش يعدّل فيه. Cloudflare Workers و GitHub Pages الاتنين بينشروا منه بس، ولينك العملاء لسه بيشاور عليه لحد ما الجديد يثبت.
 - **`main`:** مشروع Next.js 16 + Clerk + Tailwind في أول الريبو. الـ build بيعدّي. الأساس اتبنى: العربي على `/` (`rtl`) والإنجليزي على `/en` (`ltr`) بزرار تبديل في الهيدر، خط Cairo، ألوان الصفحة القديمة كـ tokens في `app/globals.css`، ودارك/ليت مود بزرار شمس/قمر. كل أقسام الصفحة القديمة اتنقلت بالعربي والإنجليزي، وفورم "كلمنا" بيبعت للسيرفر اللي بيحفظ في `contact_requests` ومعاه اللغة والموقع.
 - صور التطبيق في `public/assets/`، وجدول فورم التواصل في `supabase/contact_requests.sql`.
 - **محتوى الموقع الجديد اتحدد** (جلسة أسئلة 2026-10-29): عربي على `/` وإنجليزي على `/en`، دارك/ليت مود، نفس أقسام الصفحة القديمة، و**صفحة الإدارة** لمطوّر التطبيق بس. القرارات في `docs/adr/0001` لحد `0003` وفي `GLOSSARY.md`.
@@ -48,7 +49,7 @@
 - [x] Clerk: الكود يتأكد إن اللي داخل هو إسلام (`app/_lib/admin.ts`). صفحة `/sign-in` بالعربي وبتمشي على الدارك/ليت، و`/sign-up` اتشالت.
 - [x] تجربة `/admin` وإسلام داخل اتعملت يوم 2026-10-29 (تفاصيلها في السجل).
 - [x] صفحة الإدارة `/admin` (عربي بس): طلبات التواصل من الموقعين وتغيير الحالة وزرار واتساب، عدد الزوار (النهارده/7/30 يوم، عربي وإنجليزي)، ضغطات الواتساب، وكارت وضع السيرفر (الجديد، Supabase، Cloudflare، GitHub Pages).
-- [ ] النشر على Render كـ Node web service مجاني، من غير أي حاجة خاصة بـ Render (ADR 0002). متغيرات البيئة اللي Render محتاجها: `SUPABASE_URL`، `SUPABASE_PUBLISHABLE_KEY`، `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`، `CLERK_SECRET_KEY`، و`NEXT_PUBLIC_CLERK_SIGN_IN_URL` (`/sign-in`) و`NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL` (`/admin`)، و`ADMIN_EMAIL`، و`SUPABASE_SECRET_KEY` (سرّي، من غير `NEXT_PUBLIC_`). نفس قيم `.env.local`. متغيرات الـ Sign up اتشالت.
+- [x] النشر على Render كـ Node web service مجاني، من غير أي حاجة خاصة بـ Render (ADR 0002). اتنشر يوم 2026-10-29 (تفاصيله وملاحظاته في السجل). متغيرات البيئة اللي الخدمة عليها: `SUPABASE_URL`، `SUPABASE_PUBLISHABLE_KEY`، `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`، `CLERK_SECRET_KEY`، `NEXT_PUBLIC_CLERK_SIGN_IN_URL` (`/sign-in`)، `NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL` (`/admin`)، `ADMIN_EMAIL`، و`SUPABASE_SECRET_KEY` (سرّي، من غير `NEXT_PUBLIC_`).
 
 قبل البناء (على إسلام):
 - [x] حساب إسلام اتعمل في Clerk (development instance) يوم 2026-10-29.
@@ -56,8 +57,9 @@
 - [ ] إيميل الأدمن يتحط في متغير بيئة (`.env.local` وعلى Render)، مش في الكود ولا في الريبو.
 
 حاجات تانية:
-- [ ] امسح كل صفوف `site_events` الحالية (كلها من تجاربنا على localhost، فيها زيارات اتعدّت وإحنا بنفتح `/` و`/en` بـ `next start`)، عشان أرقام صفحة الإدارة تبدأ نضيفة.
-- [ ] امسح طلبين التجربة من جدول `contact_requests` (رقم 3 "تجربة Claude" ورقم 4 "Claude test") من لوحة Supabase، أو سيبهم لحد ما صفحة الإدارة تتعمل.
+- [ ] امسح كل صفوف `site_events` (كلها من تجاربنا على localhost وعلى الموقع الحي)، عشان أرقام صفحة الإدارة تبدأ نضيفة. التطبيق من الشات اترفض مرتين، فيتعمل من SQL Editor: `delete from public.site_events;`
+- [ ] امسح طلبات التجربة من `contact_requests` (رقم 3 "تجربة Claude" و4 "Claude test" و5 "تجربة لايف") من SQL Editor: `delete from public.contact_requests where id in (3, 4, 5);`
+- [ ] امسح الخدمة القديمة `smart-invoice-reader` من Render (بنوع Docker، كل deploy ليها بيفشل لأن الريبو مفيهوش Dockerfile، وبتبعت إيميلات فشل). أداة Render اللي عندنا مفيهاش مسح، فيتعمل من الداشبورد: Settings ثم Delete Service.
 - [ ] في الرسم التوضيحي بتاع "تبادل الشغل"، جملة "استلم ملف + اتأكد إنه من المندوب + من غير تكرار" راكبة على كلمة "صاحب المحل". المشكلة دي موجودة في الصفحة القديمة كمان، واتنقلت زي ما هي. في الإنجليزي الجملة اتختصرت.
 - [ ] مفيش `og:image` في الموقع الجديد، لأنه محتاج لينك كامل للموقع (`metadataBase`). يتحط لما يبقى ليه عنوان على Render.
 - [x] skill `pre-deploy-check` اتحدّث لمشروع Next.js يوم 2026-10-29 (تفاصيله في السجل).
@@ -72,6 +74,14 @@
 ## السجل
 
 ### 2026-10-29
+- **النشر على Render:** اتعمل `git push origin main` (من `10e72ef` لـ `bf51431`، من غير force، و`landing-html` ما اتلمسش). الخدمة `smart-invoice-reader-web` (id `srv-dbhl9puc6qcc73fnj5ug`) على الخطة المجانية، Node، Frankfurt، البناء `npm ci && npm run build` والتشغيل `npm start`، ومفيش `render.yaml` ولا أي كود خاص بـ Render. اتنشر من الأول بالمتغيرات العامة، وإسلام حط المفتاحين السريين (`CLERK_SECRET_KEY` و`SUPABASE_SECRET_KEY`) بنفسه من الداشبورد.
+- اللي اتفحص على الرابط الحي: `/` و`/en` بالاتجاه الصح، وفاتح وغامق، و`/sign-up` بيرجع 404، و`/admin` من غير دخول بيحوّل لـ `/sign-in` ومفيهوش بيانات. فورم من `/` اتسجّل برقم 5 باللغة `ar` والموقع `new`، وضغطة واتساب وزيارات اتسجلوا في `site_events`. إسلام دخل بنفسه على `onrender.com` (Clerk development بيشتغل على الدومين من غير إعداد زيادة)، و`/admin` فتحت بكل الأقسام: السيرفرات التلاتة شغالة، الزيارات، ضغطات الواتساب، والطلبات الأربعة.
+- **ملاحظات:**
+  - أول مرة الموقع رجّع 500 على كل الصفحات (`@clerk/nextjs: Missing secretKey`) لأن `CLERK_SECRET_KEY` ما كانش واصل للخدمة (اتحط في مكان غلط). أداة Render اللي عندنا بتعمل deploy بس مش بتعرض أسماء المتغيرات، فالفحص كان من سجل الخدمة. لو ظهر نفس الخطأ تاني، اتأكد من اسم المتغير على `smart-invoice-reader-web` نفسها.
+  - الخدمة المجانية بتنام بعد 15 دقيقة من غير زيارات، وأول زائر بعدها بيستنى حوالي دقيقة (ADR 0002).
+  - الموقع بيعدّ الزيارات والضغطات في الإنتاج بس، فزياراتنا للرابط الحي بتتعدّ.
+  - hook إضافة Render بيطلع error بسبب المسافة في مسار المستخدم `C:/Users/NEW LAP`، فاستخدمنا أدوات Render MCP بدله.
+  - المسح من التطبيق (`execute_sql` بـ `delete`) اتمنع من شاشة الموافقة أكتر من مرة، فمسح بيانات التجربة بيتعمل من SQL Editor (شوف حاجات مفتوحة).
 - **تحديث `pre-deploy-check`:** اتكتب من جديد لـ `main` (Next.js على Render): السكريبت `scripts/check_site.py` (بدل `check_page.py` بتاع الـ HTML اللي اتمسح)، و`SKILL.md` بخطوات: تشغيل السكريبت، النظر في اللي هيتنشر، وحكم بالعربي. بيفحص: إن الفرع `main` وإن `landing-html` لسه متقفل على `10e72ef`، وإن مفيش `.env*` أو أسرار (`sb_secret_` وservice_role ومفاتيح Clerk وقيم `.env.local` وإيميل الأدمن) في الملفات اللي هتترفع، ومتغيرات `NEXT_PUBLIC_` ما فيهاش أسرار، و`server-only` على كل ملف بيقرأ مفتاح سري، والـ placeholders، ورقم الواتساب ورسايله في اللغتين، ومطابقة `ar.json` و`en.json`، وإن الـ SQL ما بيسمحش لـ anon بغير الإضافة، وإن متغيرات البيئة اللي الكود بيقراها مكتوبة كلها في قايمة Render هنا، و`npm run lint` و`npm run build`. اتجرّب على `main` الحالي: صفر blockers، وتحذير واحد (فولدر `.agents/skills/impeccable/` لسه من غير commit)، واتجرّب على نسخة فيها 12 غلطة متعمدة والسكريبت لقطها كلها. الـ skill نفسه جوه `.claude/` واللي في `.gitignore`، فمش على git. الـ evals القديمة في `.claude/skills/pre-deploy-check/evals/` لسه بتاعة `index.html` ومش متحدّثة.
 - **صفحة الإدارة `/admin` (الكود):** `app/(ar)/(private)/admin/`. الحماية: `requireAdmin()` بيحوّل اللي مش داخل لـ `/sign-in`، واللي داخل بإيميل غير `ADMIN_EMAIL` (أو إيميله مش متأكد منه) بياخد 404 وما بيشوفش بيانات. `ADMIN_EMAIL` في `.env.local` بس. القراءة وتغيير الحالة بالـ secret key من السيرفر بس (`server-only`، من غير `NEXT_PUBLIC_`)، وتغيير الحالة (Server Action) بيتأكد إنه إسلام تاني. الصفحة فيها: كارت وضع السيرفرات (الموقع الجديد وSupabase وCloudflare وGitHub Pages، مهلة 4 ثواني)، الزيارات عربي/إنجليزي (النهارده بتوقيت القاهرة، 7 أيام، 30 يوم)، ضغطات كل زرار واتساب، وطلبات التواصل (الأحدث فوق) بتغيير الحالة وزرار واتساب للتاجر. مفيش مسح ولا Excel ولا تنبيهات.
 - `/sign-in` بقت بالعربي (`@clerk/localizations`) وبتمشي على الدارك/ليت، وبعد الدخول بتودّي `/admin`. `/sign-up` ومتغيراتها اتشالت. صفحات Clerk اتنقلت لـ `app/(ar)/(private)/` وعليها noindex.
