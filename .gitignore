@@ -31,6 +31,8 @@ desktop.ini
 
 # misc
 *.pem
+*.exe
+
 
 # debug
 npm-debug.log*
@@ -47,3 +49,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# impeccable local cache
+.impeccable/
+
